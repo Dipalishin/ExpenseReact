@@ -1,13 +1,21 @@
-function ExpenseItem() {
+import ExpenceDate from "./ExpenceDate";
+import "./ExpenceItem.css";
+import ExpenceDetails from "./ExpenceDetails";
+import React, { useState } from "react";
+function ExpenceItem(props) {
+const [amount,setAmount]=useState(props.amount);
+const expenceChange=()=>{
+  setAmount('100');
+}
+
+  
+
   return (
-    <div>
-      <div>
-        <h1>Expense Items</h1>
-      </div>
-      <div> Food Rs 10</div>
-      <div>Petrol Rs 100</div>
-      <div>Movies Rs 200</div>
+    <div className="expense-item">
+      <ExpenceDate date={props.date} />
+      <ExpenceDetails title={props.title} amount={amount} locationOfExpenditure={props.locationOfExpenditure}/>
+            <button onClick={expenceChange}>Change Expence</button>
     </div>
   );
 }
-export default ExpenseItem;
+export default ExpenceItem;
